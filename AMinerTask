@@ -1,0 +1,24 @@
+
+import java.util.*;
+
+public class Maps {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String resource = scanner.nextLine();
+        Map<String, Integer> resourcesBook = new LinkedHashMap<>();
+
+        while(!resource.equals("stop")){
+            int quantity = Integer.parseInt(scanner.nextLine());
+            if(!resourcesBook.containsKey(resource)){
+                resourcesBook.put(resource, quantity);
+            } else {
+                resourcesBook.put(resource, resourcesBook.get(resource) + quantity);
+            }
+
+
+            resource = scanner.nextLine();
+        }
+        resourcesBook.forEach((k,v) -> System.out.println(k + " -> " + v));
+    }
+}
+
